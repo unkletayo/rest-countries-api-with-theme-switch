@@ -20,42 +20,57 @@
         Dark Mode
       </button>
     </div>
+
   </header>
 
-  <section>
-    <div class="container">
-      <input id="search" class="search" type="text" placeholder="Search for a country" />
 
-      <div class="dropdown" id="filter">
-        Filter by Region
-        <i class="fas fa-chevron-down"></i>
-        <ul>
-          <li>All</li>
-          <li>Africa</li>
-          <li>Americas</li>
-          <li>Asia</li>
-          <li>Europe</li>
-          <li>Oceania</li>
-        </ul>
+  <div>
+    <section>
+      <div class="container">
+        <input id="search" class="search" type="text" placeholder="Search for a country" />
+
+        <div class="dropdown" id="filter">
+          Filter by Region
+          <i class="fas fa-chevron-down"></i>
+          <ul>
+            <li>All</li>
+            <li>Africa</li>
+            <li>Americas</li>
+            <li>Asia</li>
+            <li>Europe</li>
+            <li>Oceania</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="modal" id="modal">
+      <div class="container">
+        <button class="btn-close" id="close">
+          <i class="fas fa-times"></i>
+        </button>
+        <img src="" alt="" />
+        <div class="modal-body"></div>
       </div>
     </div>
-  </section>
 
-  <div class="modal" id="modal">
-    <div class="container">
-      <button class="btn-close" id="close">
-        <i class="fas fa-times"></i>
-      </button>
-      <img src="" alt="" />
-      <div class="modal-body"></div>
-    </div>
+    <section>
+      <div class="container countries" id="countries">
+        <div class="loader" id="card-loader"></div>
+      </div>
+    </section>
   </div>
 
-  <section>
-    <div class="container countries" id="countries">
-      <h2>Countries Loading...</h2>
+
+  <section class="noresult" id="noresult">
+    <div class="noresult-container">
+      <div class="no-results-container" id="no-results-container">
+        <h3>Please use more specific keyword</h3>
+      </div>
+      <div class="loader" id="card-loader"></div>
     </div>
   </section>
+
 
   <script src="script.js"></script>
 </body>

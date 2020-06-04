@@ -1,11 +1,15 @@
 // Modal
-const countriesEl = document.getElementById('countries');
-const toggleBtn = document.getElementById('toggle');
-const filterBtn = document.getElementById('filter');
-const regionFilters = filterBtn.querySelectorAll('li');
-const searchEl = document.getElementById('search');
-const modal = document.getElementById('modal');
-const closeBtn = document.getElementById('close');
+const countriesEl = document.getElementById('countries'),
+  toggleBtn = document.getElementById('toggle'),
+  filterBtn = document.getElementById('filter'),
+  regionFilters = filterBtn.querySelectorAll('li'),
+  searchEl = document.getElementById('search'),
+  modal = document.getElementById('modal'),
+  closeBtn = document.getElementById('close'),
+  noResult = document.getElementById('noresult'),
+  loader = document.getElementById('card-loader');
+
+noResult.style.display = 'none';
 
 // toggle theme - dark & light
 toggleBtn.addEventListener('click', () => {
@@ -22,6 +26,7 @@ async function getCountries() {
 }
 
 const displayCountries = (countries) => {
+  loader.style.display = 'none';
   countriesEl.innerHTML = '';
 
   countries.forEach((country) => {
@@ -103,8 +108,14 @@ ${country.languages.map((language) => language.name)}
   `;
 };
 
+// close the modal
 closeBtn.addEventListener('click', () => {
   modal.style.display = 'none';
+});
+
+// show and hide the filters (li tags)
+filterBtn.addEventListener('click', () => {
+  filterBtn.classList.toggle('open');
 });
 
 searchEl.addEventListener('input', (e) => {
@@ -116,6 +127,22 @@ searchEl.addEventListener('input', (e) => {
       name.parentElement.parentElement.style.display = 'block';
     } else {
       name.parentElement.parentElement.style.display = 'none';
+      noResult.style.display = 'flex';
     }
+  });
+});
+
+regionFilters.forEach((nation) => {
+  nation.addEventListener('click', () => {
+    const result = nation.innerText,
+      countryRegion = document.querySelectorAll('.country-region');
+
+    countryRegion.forEach((region) => {
+      if (region.innerHTML.includes(result) || result === 'All') {
+        region.parentElement.parentElement.style.display = 'block';
+      } else {
+        region.parentElement.parentElement.style.display = 'none';
+      }
+    });
   });
 });
