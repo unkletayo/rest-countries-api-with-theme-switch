@@ -107,7 +107,15 @@ closeBtn.addEventListener('click', () => {
   modal.style.display = 'none';
 });
 
-searchEl.addEventListener('click', () => {
+searchEl.addEventListener('input', (e) => {
   const { value } = e.target;
   const nameOfConttry = document.querySelectorAll('.country-name');
+
+  nameOfConttry.forEach((name) => {
+    if (name.innerText.toLowerCase().includes(value.toLowerCase())) {
+      name.parentElement.parentElement.style.display = 'block';
+    } else {
+      name.parentElement.parentElement.style.display = 'none';
+    }
+  });
 });
