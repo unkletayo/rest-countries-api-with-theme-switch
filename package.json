@@ -1,0 +1,9 @@
+{
+  "name": "rest-countries-api-with-color-theme-switcher-master",
+  "version": "1.0.0",
+  "description": "frontendmentor challenge",
+  "main": "index.js",
+  "repository": "https://github.com/UnkleTayo/rest-countries-api-with-theme-switch.git",
+  "author": "Adetayo <akinsanyaadetayo@gmail.com>",
+  "license": "MIT"
+}
