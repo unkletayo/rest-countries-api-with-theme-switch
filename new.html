@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link rel="stylesheet" href="/css/style.css" type="text/css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,600,800&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/167b44c09c.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>Frontend Mentors| Where in the world?</title>
+  </head>
+  <body">
+    <header class="header">
+      <div>
+        <h1>Where in the world?</h1>
+      </div>
+
+      <div>
+        <label class="label" for="chk">
+          <i class="fa fa-moon-o" aria-hidden="true"></i>
+          <i class="fas fa-sun"></i>
+          <div class="ball"></div>
+        </label>
+      </div>
+    </header>
+    <main>
+      <div id="main-screen">
+        <div class="bar">
+          <div class="input-container search">
+            <i class="fas fa-search fa-lg" id="search-icon"></i>
+            <input
+              type="text"
+              name="search"
+              id="search"
+              autocomplete="off"
+              placeholder="Search for a country..."
+              onchange="updateLoad(this)"
+            />
+          </div>
+          <div class="input-container filter" onclick="toggleDropdown()">
+            <p id="active-filter">Filter by region</p>
+            <div class="input-container options" id="filter-options">
+              <div
+                class="option-container option-top"
+                onclick="chooseFilter(this)"
+              >
+                <p class="option">Africa</p>
+              </div>
+              <div class="option-container" onclick="chooseFilter(this)">
+                <p class="option">Americas</p>
+              </div>
+              <div class="option-container" onclick="chooseFilter(this)">
+                <p class="option">Asia</p>
+              </div>
+              <div class="option-container" onclick="chooseFilter(this)">
+                <p class="option">Europe</p>
+              </div>
+              <div class="option-container" onclick="chooseFilter(this)">
+                <p class="option">Oceania</p>
+              </div>
+              <div
+                class="option-container option-bottom"
+                onclick="chooseFilter(this)"
+              >
+                <p class="option">No Filter</p>
+              </div>
+            </div>
+            <i class="fas fa-chevron-down fa-md" id="filter-icon"></i>
+          </div>
+        </div>
+        <div id="card-holder"></div>
+        <div class="loader" id="card-loader"></div>
+        <div class="no-results-container" id="no-results-container">
+          <p class="no-results" id="no-results">
+            No results found Please make your search more specific
+          </p>
+        </div>
+      </div>
+      <div id="detail-screen">
+        <div class="bar">
+          <div class="input-container back" onclick="back()">
+            <i class="fas fa-arrow-left" id="back-icon"></i>
+            <p>Back</p>
+          </div>
+        </div>
+        <div class="details-container">
+          <div class="details details-left">
+            <img id="details-flag" />
+          </div>
+          <div class="details details-right">
+            <h1 class="detail" id="details-name"></h1>
+            <div class="detail details-detail">
+              <div class="details detail-box">
+                <p>Native Name: <span id="nativeName"></span></p>
+                <p>Population: <span id="population"></span></p>
+                <p>Region: <span id="region"></span></p>
+                <p>Sub Region: <span id="sub-region"></span></p>
+                <p>Capital: <span id="capital"></span></p>
+              </div>
+              <div class="details detail-box">
+                <p>Top Level Domain: <span id="tld"></span></p>
+                <p>Currencies: <span id="currencies"></span></p>
+                <p>Languages: <span id="languages"></span></p>
+              </div>
+            </div>
+            <div
+              class="detail details-border-container"
+              id="details-border-container"
+            >
+              <p id="border-country-p">Border Countries:</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
